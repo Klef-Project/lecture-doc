@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>フロントエンド</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../themes/packages/@klef/vivliostyle-theme-klef-lecture/theme.css">
+  </head>
+  <body>
+    <section class="level1" aria-labelledby="はじめに">
+      <h1 id="はじめに">はじめに</h1>
+      <p>本研修を行う前に、以下のパッケージがインストールされていることを確認してください。</p>
+      <ul>
+        <li>Node.js</li>
+        <li>npm</li>
+        <li>pnpm</li>
+      </ul>
+    </section>
+    <section class="level1" aria-labelledby="フロントエンドとは">
+      <h1 id="フロントエンドとは">フロントエンドとは</h1>
+      <p>フロントエンドは、Web業界の用語で、主に<strong>ユーザーから見えるところ</strong>のことを指します。対義語はバックエンドです。<br>本研修では、HTML/CSSというフロントエンドの制作のコアとなる技術を学びます。<br>それと同時に、フロントエンドフレームワークであるNuxt.jsを用いて現在Web開発の主流となっている<strong>コンポーネント指向</strong>の考え方を学び、それに基づくWebアプリケーションを制作できるようにしていきます。</p>
+      <section class="level2" aria-labelledby="コンポーネント指向とは">
+        <h2 id="コンポーネント指向とは">コンポーネント指向とは</h2>
+        <p>コンポーネント指向とは、Webサイトなどを1つの大きなまとまりではなく、いくつもの小さなまとまり(=<strong>コンポーネント</strong>)の組み合わせと考え、そのコンポーネント単位で設計を行い、それを組み合わせてWebサイトを制作する、という開発手法です。</p>
+        <section class="level3" aria-labelledby="コンポーネント指向のメリット">
+          <h3 id="コンポーネント指向のメリット">コンポーネント指向のメリット</h3>
+          <ul>
+            <li>レイアウトの変更が容易</li>
+            <li>同じような構造の使い回しが可能</li>
+          </ul>
+        </section>
+        <section class="level3" aria-labelledby="コンポーネント指向のデメリット">
+          <h3 id="コンポーネント指向のデメリット">コンポーネント指向のデメリット</h3>
+          <ul>
+            <li>コンポーネントの分け方が人によって違う</li>
+            <li>ファイルが多くなる</li>
+          </ul>
+        </section>
+      </section>
+      <section class="level2" aria-labelledby="nodejsとは">
+        <h2 id="nodejsとは">Node.jsとは</h2>
+        <p>Node.jsとは、<strong>JavaScriptランタイム</strong>の1つであり、フロントエンド開発によく使われます。基本的に、フロントエンド開発ではNode.jsから逃げることはできません。</p>
+        <p>今回は、Nuxt.jsというフロントエンドフレームワークを動かすために使います。</p>
+      </section>
+      <section class="level2" aria-labelledby="npmpnpmとは">
+        <h2 id="npmpnpmとは">npm/pnpmとは</h2>
+        <p>それぞれ、Node Package manager/Performant NPMの略で、Node.jsの<strong>パッケージマネージャー</strong>です。これを使うことで、Nuxt.jsやNext.js、その依存パッケージとかをかんたんに導入できます。</p>
+      </section>
+      <section class="level2" aria-labelledby="nuxtjsとは">
+        <h2 id="nuxtjsとは">Nuxt.jsとは</h2>
+        <p>Nuxt.jsは<em>Vue.js</em>をベースに開発された<strong>フロントエンドフレームワーク</strong>です。<br><strong>SSR</strong>や<strong>SPA</strong>に対応しています。</p>
+        <section class="level3" aria-labelledby="vuejsとは">
+          <h3 id="vuejsとは">Vue.jsとは</h3>
+          <p>Vue.jsはAnthony fu氏が開発したjavaScript<strong>ライブラリ</strong>で、<strong>TypeScript</strong>にも対応しています。<br>Vue.jsではHTML/CSS/JavaScriptをすべてまとめて1つのファイルに書くことができるのが最大の特徴といえ、それによって1つのコンポーネントあたり1つのファイル、という状態にできます。</p>
+        </section>
+        <section class="level3" aria-labelledby="typescriptとは">
+          <h3 id="typescriptとは">TypeScriptとは</h3>
+          <p>TypeScriptは、Microsoftが開発した、JavaScriptの上位互換にあたる言語です。<br><strong>型注釈</strong>ができるのが最大の特徴といえます。</p>
+        </section>
+        <section class="level3" aria-labelledby="型注釈とは">
+          <h3 id="型注釈とは">型注釈とは</h3>
+          <p>
+            変数を定義するときにその変数がとり得る値を<strong>型</strong>として併記することを<strong>型注釈</strong>といいます。
+            ここでいう「型」は、int(整数)、bool(真偽値)、string(文字列)などです。<br>また、「型」はプログラミング言語によって違うので注意が必要です。
+          </p>
+        </section>
+        <section class="level3" aria-labelledby="ssrとは">
+          <h3 id="ssrとは">SSRとは</h3>
+          <p>SSRはServer-Side Renderingの略で、Webサイトを表示するときに、クライアント側で処理するのではなく、サーバー側で処理をして、その結果をクライアント側に返す、一連の処理のことです。</p>
+        </section>
+        <section class="level3" aria-labelledby="spaとは">
+          <h3 id="spaとは">SPAとは</h3>
+          <p>
+            SPAはSingle Page Applicationの略で、ページ遷移やリロードではなく非同期処理などを用いて1つのページで完結させるWebアプリのことです。
+            具体的は、FacebookやGoogle Map、TeamsやSlackなどがSPAアプリケーションの例として挙げられます
+          </p>
+        </section>
+        <section class="level3" aria-labelledby="フロントエンドフレームワークとは">
+          <h3 id="フロントエンドフレームワークとは">フロントエンドフレームワークとは</h3>
+          <p>フロントエンドフレームワークは、フロントエンド開発に必要な機能やあったら便利な機能をまとめたもので、主にJavaScriptで書かれます。<br>数えだしたらきりがないほど大量にあり、現在よく使われるのはNext.js、Gatsby.js、Nuxt.js、Angular.jsです。<br>また、フレームワークを使わない純粋なJavaScriptはVanilla JSと呼ばれます。</p>
+        </section>
+      </section>
+    </section>
+  </body>
+</html>

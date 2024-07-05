@@ -1,0 +1,541 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Linux入門</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../themes/packages/@klef/vivliostyle-theme-klef-lecture/theme.css">
+  </head>
+  <body>
+    <section class="level1" aria-labelledby="はじめに">
+      <h1 id="はじめに">はじめに</h1>
+      <p>この研修を受講する前に、以下のソフトウェアがインストールされていることを確認してください。</p>
+      <ul>
+        <li>WSLまたは何らかのLinux環境</li>
+        <li>Docker</li>
+      </ul>
+      <p>本研修では、Linuxの基本操作、およびLinuxの設定とDockerの使用方法について学びます。</p>
+    </section>
+    <section class="level1" aria-labelledby="linuxとそのディストリビューション">
+      <h1 id="linuxとそのディストリビューション">Linuxとそのディストリビューション</h1>
+      <section class="level2" aria-labelledby="linuxとは">
+        <h2 id="linuxとは">Linuxとは</h2>
+        <p>LinuxはLinus Torvaldsによって開発された<strong>オープンソース</strong>の<strong>OS</strong>です。<br>主に<strong>サーバー</strong>や<strong>ワークステーション</strong>に利用されています。</p>
+      </section>
+      <section class="level2" aria-labelledby="linuxディストリビューションとは">
+        <h2 id="linuxディストリビューションとは">Linuxディストリビューションとは</h2>
+        <p>ディストリビューションは「配布物」という意味で、星の数ほどあります。<br>Linuxはオープンソースなので、多くの人がカスタマイズしてパッケージ化して配布しています。<br>そういったパッケージの一つ一つ、およびそれらをまとめて<strong>ディストリビューション</strong>と呼びます。</p>
+      </section>
+      <section class="level2" aria-labelledby="主要なlinuxディストリビューション">
+        <h2 id="主要なlinuxディストリビューション">主要なLinuxディストリビューション</h2>
+        <p>Linuxディストリビューションには系統が存在します。</p>
+        <section class="level3" aria-labelledby="debianubuntu系">
+          <h3 id="debianubuntu系">Debian/Ubuntu系</h3>
+          <ul>
+            <li><strong>Debian GNU/Linux</strong> : パッケージマネージャーに<strong>apt</strong>(Advanced Packaging Tool)を採用したディストロ。派生ディストロが非常に多い。</li>
+            <li><strong>Ubuntu</strong> : 「使いやすさ」にフォーカスし、<strong>プロプライエタリ</strong>なソフトウェアも標準で導入しているディストロ。Ubuntuはズールー語で「他者への思いやり」の意。デスクトップ環境はGNOME Shell。</li>
+            <li>Xubuntu : Ubuntuフレーバー(Ubuntuの公式派生)の1つで、デスクトップ環境にXfceを採用したディストロ。</li>
+            <li>Lubuntu : Ubuntuフレーバーの1つで、デスクトップ環境にLXQtを採用したディストロ。</li>
+            <li>Kubuntu : Ubuntuフレーバーの1つで、デスクトップ環境にKDE Plasmaを採用したディストロ。</li>
+            <li>Ubuntu Budgie : Ubuntuフレーバーの1つで、デスクトップ環境にBudgieを採用したディストロ。</li>
+            <li>Ubuntu MATE : Ubuntuフレーバーの1つで、デスクトップ環境にMATEを採用したディストロ。</li>
+            <li>Edubuntu : Ubuntuフレーバーの1つで、教育向けソフトウェアを多数インストールされているディストロ。<del>一度消えたがいつのまにか復活してる。</del>デスクロップ環境はGNOME Shell。</li>
+            <li>Ubuntu Kylin : Ubuntuフレーバーの1つで、デスクトップ環境にUKUI(Ubuntu Kylin User Interface)を採用したディストロ。</li>
+            <li>Ubuntu Cinnamon : Ubuntuフレーバーの1つで、デスクトップ環境にCinnamonを採用したディストロ。24.04LTSから正式フレーバーになった。</li>
+            <li>Ubuntu Unity : Ubuntuフレーバーの1つで、デスクトップ環境にUnityを採用したディストロ。</li>
+            <li>Ubuntu Studio : Ubuntuフレーバーの1つで、マルチメディアに特化したディストロ。デスクトップ環境はKDE Plasma。</li>
+            <li>Ubuntu Desktop 日本語Remix : Ubuntu Remix(Ubuntuの非公式派生)の1つで、公式のUbuntuを日本語化し、日本語入力できるようにしたディストロ。</li>
+            <li>Ubuntu Sway Remix : Ubuntu Remixの1つで、ウィンドウマネージャーにSwayを採用したディストロ。</li>
+            <li>Linux Mint : Windowsから乗り換えやすいUbuntu派生ディストロ。デスクトップ環境はCinnamon、Mate、Xfceから選べる。</li>
+            <li>MX Linux : 「Linux感」が強めのLinuxディストロ。Distrowatch.comのPage Hit Rankingで上位をキープしている。(2024年7月3日時点1位)</li>
+            <li>KDE Neon : KDE Plasmaの最新版を採用したディストロ。Ubuntuベース。</li>
+          </ul>
+        </section>
+        <section class="level3" aria-labelledby="redhat系">
+          <h3 id="redhat系">RedHat系</h3>
+          <ul>
+            <li><strong>RHEL(RedHat Enterprise Linux)</strong> : RedHat社が開発した商用Linux。パッケージマネージャーに<strong>rpm</strong>(Rpm Package Manager)を採用。(yumとはYellowdog Updater Modifiedの略で、こちらもパッケージマネージャー。)</li>
+            <li><strong>Fedora</strong> : RedHat社謹製のディストロ。RHELからプロプライエタリなソフトウェアを排除したディストロであり、RHELに搭載予定の次世代の機能を試験搭載したりしている。</li>
+          </ul>
+        </section>
+        <section class="level3" aria-labelledby="slackware系">
+          <h3 id="slackware系">Slackware系</h3>
+          <ul>
+            <li><strong>Slackware</strong> : 「最古のディストリビューション」とも言われているディストロ。パッケージマネージャーが依存関係を解決しないので、ユーザーが解決する必要がある。</li>
+            <li>PuppyLinux : 「軽量性」と「安定性」を重視したLinuxディストリビューション。</li>
+          </ul>
+        </section>
+        <section class="level3" aria-labelledby="独立系">
+          <h3 id="独立系">独立系</h3>
+          <ul>
+            <li><strong>ArchLinux</strong> : 「KISS原則」(Keep It Simple, stupid: シンプルにしておけ！この間抜け)<a id="fnref1" href="#fn1" class="footnote-ref" role="doc-noteref"><sup>1</sup></a>を具現化したようなディストリビューション。インストールはGUIではなくCLIのみであり、ブートローダーやKernelなど、基本的にすべてを自分で選んで自分で設定するディストリビューションである。パッケージマネージャーは<strong>Pacman</strong>であり、非公式パッケージリポジトリである<strong>AUR</strong>は半公式状態である。</li>
+            <li><strong>GentooLinux</strong> : すべてのパッケージを自分でビルドしてインストールするディストリビューションである。フラグを使ってビルド設定をすることで自分に最適化されたビルドができる一方、その特性ゆえに「Linuxディストリビューションの中で一番難しい」といわれている。パッケージマネージャーは<strong>portage</strong></li>
+            <li><strong>ChromeOS</strong> : Googleが「ChromeBook」用のOSとしてGentooLinuxをベースに作成したディストロ。</li>
+            <li><strong>NixOS</strong> : パッケージマネージャーに「Nix」を採用したディストロ。それによってすべての設定を宣言的に書くことができ、再現性も担保できる。また、Nixはビルド環境としてもよく使われ、その構築スクリプトは純粋関数型言語「Nix言語」で書く。</li>
+            <li><strong>Android</strong> : 世界トップシェアを誇るスマホ用OS。LinuxをベースにGoogleが<del>魔改造</del>カスタマイズしたもの。</li>
+            <li>Linux From Scratch : <del>もはやディストリビューションと言っていいのかわからないが、</del>ディストロをイチから自分で作るという<del>何を言っているのかよくわからない</del>ディストロ<del>(?)</del></li>
+          </ul>
+        </section>
+      </section>
+    </section>
+    <section class="level1" aria-labelledby="linuxの操作">
+      <h1 id="linuxの操作">Linuxの操作</h1>
+      <p>Linuxは基本的にコマンドラインを利用することで操作を行います。<br>ただし、最近のディストリビューションではGUI(Graphical User Interface: マウスで直接操作できるUI)を備えているものも多く、「ただ使うだけ」の場合コマンドを使わずに操作できます。<br>しかし、コアの部分に近い設定はGUIでできないことも多く、そのような設定はコマンドラインを使用します。<br>みなさんには、後日、自分自身の好きな構成でArchLinuxを仮想環境にインストールしてもらいます。<br>そのときには、GUIの環境の構築もしてもらうので、そのときまではCLIでがんばりましょう。</p>
+      <section class="level2" aria-labelledby="コマンドの構造">
+        <h2 id="コマンドの構造">コマンドの構造</h2>
+        <pre class="language-text"><code class="language-text">git clone -b develop https://github.com/owner/repo ./test</code></pre>
+        <p>というコマンドがあるとき、<br><code>git</code>が<strong>コマンド</strong>と呼ばれ、<code>clone</code>が<strong>サブコマンド</strong>と呼ばれます。<br>サブコマンドは、メインコマンドの機能の中からどの機能を使うのかを指定する文字列です。<br>その後につづく<code>-b develop</code>は<strong>オプション</strong>とよばれます。意味は読んだとおりです。また、オプションのプロパティ名の前には<code>-</code>または<code>--</code>がつけられます。プロパティ名が1文字のときは<code>-</code>、2文字以上のときは<code>--</code>が使われることが多いです。<br>さらにその後に続く<code>https://github.com/owner/repo</code>と<code>./test</code>を<strong>引数(ひきすう)</strong>と呼びます。引数は、コマンドの実行場所やターゲットなどを指定することが多いです。特に<code>https://github.com/owner/repo</code>の部分を<strong>第1引数</strong>、<code>./test</code>の部分を<strong>第2引数</strong>と呼びます。</p>
+      </section>
+      <section class="level2" aria-labelledby="root">
+        <h2 id="root">root</h2>
+        <p>
+          <strong>root</strong>は、Linuxの世界では「<strong>特権ユーザー</strong>」とよばれ、Windowsにおける「管理者」のような存在ですが、権限が全く違います。
+          Linuxにおけるrootユーザーは、管理者というよりは<strong>全知全能の神</strong>という認識のほうが良いと思います。というのも、rootユーザーは<strong>システムに破壊的変更を加えることができる</strong>ので、その権限は厳密に管理しなければなりません。rootユーザーは<strong>絶対的な権限</strong>をもつのです。
+        </p>
+      </section>
+      <section class="level2" aria-labelledby="sudo">
+        <h2 id="sudo">sudo</h2>
+        <p><code>sudo</code>は"Switch User DO"の略で、その引数に取るユーザーとして続くコマンドを実行するコマンドです。<br>引数を指定しない場合はrootユーザーになります(ユーザーにroot権限を与える必要あり)。<br>...というか、sudoは主に一般ユーザーがroot権限でコマンドを実行するときに使用します。<br>先述のとおり、rootユーザーは<strong>操作ミス一発でシステムを破壊しかねない絶対的な力</strong>を持っているので、そんな状態で使うのは怖いですよね？<br>ということで、必要なときだけroot権限を利用できるのがsudoです。</p>
+      </section>
+      <section class="level2" aria-labelledby="su">
+        <h2 id="su">su</h2>
+        <p><code>su</code>は"Switch User"の略で、その引数にとるユーザーにユーザーを切り替えるコマンドです。<br>引数を取らなければrootユーザーになります。<br>たまに、システムのメンテナンスで一回一回sudoするよりも、危険を犯しつつもrootで実行したほうがよことがあります。基本的に、そういったとき<strong>のみ</strong>使用し、<strong>むやみに使用しないでください</strong>。</p>
+      </section>
+      <section class="level2" aria-labelledby="パッケージのインストール">
+        <h2 id="パッケージのインストール">パッケージのインストール</h2>
+        <p>基本的にroot権限で実行すること</p>
+        <section class="level3" aria-labelledby="debianubuntu系-1">
+          <h3 id="debianubuntu系-1">Debian/Ubuntu系</h3>
+          <p>Debian/Ubuntu系のパッケージマネージャーは<strong>apt</strong>です。</p>
+          <table>
+            <thead>
+              <tr>
+                <th>行いたい操作</th>
+                <th>コマンド</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>パッケージリポジトリのアップデート</td>
+                <td>apt update</td>
+              </tr>
+              <tr>
+                <td>パッケージのアップグレード</td>
+                <td>apt upgrade</td>
+              </tr>
+              <tr>
+                <td>パッケージのインストール</td>
+                <td>apt install
+                  <package></package>
+                </td>
+              </tr>
+              <tr>
+                <td>パッケージのアンインストール</td>
+                <td>apt remove
+                  <package></package>
+                </td>
+              </tr>
+              <tr>
+                <td>使われていないパッケージの自動削除</td>
+                <td>apt autoremove</td>
+              </tr>
+              <tr>
+                <td>パッケージの検索</td>
+                <td>apt search
+                  <package></package>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section class="level3" aria-labelledby="arch">
+          <h3 id="arch">Arch</h3>
+          <p>ArchLinuxのパッケージマネージャーは<strong>pacman</strong>です。</p>
+          <table>
+            <thead>
+              <tr>
+                <th>行いたい操作</th>
+                <th>コマンド</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>パッケージのアップデート・アップグレード</td>
+                <td>pacman -Syyu</td>
+              </tr>
+              <tr>
+                <td>パッケージのインストール</td>
+                <td>pacman -S
+                  <package></package>
+                </td>
+              </tr>
+              <tr>
+                <td>パッケージのアンインストール</td>
+                <td>pacman -R
+                  <package></package>
+                </td>
+              </tr>
+              <tr>
+                <td>パッケージの検索</td>
+                <td>pacman -Ss
+                  <package></package>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section class="level3" aria-labelledby="redhat系-1">
+          <h3 id="redhat系-1">RedHat系</h3>
+          <p>RedHat系のパッケージマネージャーは<strong>dnf</strong>です。</p>
+          <table>
+            <thead>
+              <tr>
+                <th>行いたい操作</th>
+                <th>コマンド</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>パッケージの更新の確認</td>
+                <td>dnf check-update</td>
+              </tr>
+              <tr>
+                <td>パッケージの更新</td>
+                <td>dnf upgrade
+                  <package></package>
+                </td>
+              </tr>
+              <tr>
+                <td>パッケージグループの更新</td>
+                <td>dnf group upgrade
+                  <package></package>
+                </td>
+              </tr>
+              <tr>
+                <td>パッケージのインストール</td>
+                <td>dnf install
+                  <package></package>
+                </td>
+              </tr>
+              <tr>
+                <td>パッケージの削除</td>
+                <td>dnf erase
+                  <package></package>
+                </td>
+              </tr>
+              <tr>
+                <td>パッケージの検索</td>
+                <td>dnf search
+                  <package></package>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section class="level3" aria-labelledby="gentoo">
+          <h3 id="gentoo">Gentoo</h3>
+          <p>GentooLinuxのパッケージマネージャーは<strong>portage</strong>です。</p>
+          <table>
+            <thead>
+              <tr>
+                <th>行いたい操作</th>
+                <th>コマンド</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>パッケージリポジトリのアップデート</td>
+                <td>emerge --sync</td>
+              </tr>
+              <tr>
+                <td>パッケージのアップグレード</td>
+                <td>emerge -avuD
+                  <package></package>
+                </td>
+              </tr>
+              <tr>
+                <td>パッケージのインストール</td>
+                <td>emerge -av
+                  <package></package>
+                </td>
+              </tr>
+              <tr>
+                <td>パッケージの削除</td>
+                <td>emerge -aC
+                  <package></package>
+                </td>
+              </tr>
+              <tr>
+                <td>使用しないパッケージの自動削除</td>
+                <td>emerge -a --depclean</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section class="level3" aria-labelledby="nix">
+          <h3 id="nix">Nix</h3>
+          <p>NixOSのパッケージマネージャーは<strong>Nix</strong>です。</p>
+          <p>基本的に<code>/etc/configuration.nix</code>を編集して、<code>nixos-rebuild switch</code>を実行します。<br>Flakesを有効化し、configuration.nixをflakeに組み込んだ場合は<code>nixos-rebuild switch &#x3C;path to flake.nix>#&#x3C;module></code>になります。</p>
+        </section>
+      </section>
+      <section class="level2" aria-labelledby="テキストエディタ">
+        <h2 id="テキストエディタ">テキストエディタ</h2>
+        <p>この先、Linux側のテキストファイルを書き換えるときに<strong>テキストエディタ</strong>と呼ばれるソフトウェアがあると便利です。ということで、以下に挙げるテキストエディタのうち、好きなものをインストールしてください。</p>
+        <ul>
+          <li><strong>Vim</strong> : "VI iMproved"の略で、多くのディストロに標準搭載されている「vi」というエディタを改良したテキストエディタ。少々操作が独特。</li>
+          <li><strong>NeoVim</strong> : Vimをさらに進化させた派生エディタ。操作の独特さは変わらないが、Luaというスクリプト言語で設定がかけたりと、Vimと比べて機能性は高い印象。ただし、バージョンはまだ"0.x"というベータ版である。</li>
+          <li><strong>nano</strong> : かんたんな操作で利用できるテキストエディタ。コンソールに不慣れな場合はこちらを推奨するが、ある程度コンソールになれたユーザーの場合Vimになれることを推奨する。</li>
+          <li><strong>Emacs</strong> : nanoの進化版のような感じ。Vim/NeoVimと双璧をなすテキストエディタ。LinuxユーザーはVim派とEmacs派がおり、それぞれがバチバチにやりあっている。Emacsは「全部入り」のUbuntuのような印象、Vimは「シンプル」なArchのような印象を受ける。<del>なお担当者はVim(NeoVim)派</del></li>
+        </ul>
+      </section>
+      <section class="level2" aria-labelledby="neofetch">
+        <h2 id="neofetch">Neofetch</h2>
+        <p>システム情報を表示する定番アプリがNeofetchです。これを実行して、ちゃんと自分が選択したディストリビューションがインストールされていることを確認してください。<br>neofetchは各パッケージマネージャーでインストールしてください。</p>
+      </section>
+    </section>
+    <section class="level1" aria-labelledby="linuxコマンド集">
+      <h1 id="linuxコマンド集">Linuxコマンド集</h1>
+      <section class="level2" aria-labelledby="ls">
+        <h2 id="ls">ls</h2>
+        <p>"List"の略で、カレントディレクトリの中身を一覧表示します。</p>
+        <table>
+          <thead>
+            <tr>
+              <th>オプション</th>
+              <th>挙動</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>-l</td>
+              <td>ファイル・ディレクトリの詳細情報を出力</td>
+            </tr>
+            <tr>
+              <td>-a</td>
+              <td>隠しファイルを含めすべて表示</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="level2" aria-labelledby="pwd">
+        <h2 id="pwd">pwd</h2>
+        <p>"Print Working Directory"の略で、今のカレントディレクトリの絶対パスを出力します。</p>
+      </section>
+      <section class="level2" aria-labelledby="cd">
+        <h2 id="cd">cd</h2>
+        <p>"Change Directory"の略で、引数に指定したディレクトリに移動します。</p>
+      </section>
+      <section class="level2" aria-labelledby="cp">
+        <h2 id="cp">cp</h2>
+        <p>"CoPy"の略で、第1引数に指定したファイルを第2引数に指定したパスにコピーします。</p>
+      </section>
+      <section class="level2" aria-labelledby="mv">
+        <h2 id="mv">mv</h2>
+        <p>"MoVe"の略で、第1引数に指定したファイルを第2引数に指定したパスに移動します。<br>また、第1引数と第2引数に同じディレクトリの配下のパスを指定した場合、ファイル名の変更になります。</p>
+        <pre class="language-bash"><code class="language-bash"><span class="token function">mv</span> ./test.txt ./test/test.txt <span class="token comment"># ファイルの移動</span>
+<span class="token function">mv</span> ./test.txt ./example.txt <span class="token comment"># ファイル名の変更</span></code></pre>
+      </section>
+      <section class="level2" aria-labelledby="cat">
+        <h2 id="cat">cat</h2>
+        <p>引数に指定したファイルの中身を出力します。</p>
+      </section>
+      <section class="level2" aria-labelledby="less">
+        <h2 id="less">less</h2>
+        <p>引数に指定したファイルの中身をページ送りで出力します。</p>
+      </section>
+      <section class="level2" aria-labelledby="grep">
+        <h2 id="grep">grep</h2>
+        <p>第2引数に指定したファイルの中から、第1引数に指定した文字列を探し、その行を抽出します。<br>また、別のコマンドのあとにパイプでつなぐことで、コマンド出力から引数に指定した文字列を含む行を抽出します。</p>
+        <pre class="language-bash"><code class="language-bash"><span class="token function">grep</span> osaka ./sample.txt　<span class="token comment"># sample.txtの中から"osaka"を含む行を抽出</span>
+<span class="token function">grep</span> osaka ./sample.txt ./example.txt <span class="token comment"># sample.txtとexample.txtから"osaka"を含む行を出力</span>
+timedatectl status <span class="token operator">|</span> <span class="token function">grep</span> Tokyo <span class="token comment"># コマンドの実行結果から"Tokyo"を含む行を抽出</span></code></pre>
+        <table>
+          <thead>
+            <tr>
+              <th>オプション</th>
+              <th>挙動</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>-E</td>
+              <td>正規表現を使用する</td>
+            </tr>
+            <tr>
+              <td>-i</td>
+              <td>大文字と小文字を区別せずに検索する</td>
+            </tr>
+            <tr>
+              <td>-n</td>
+              <td>抽出した行の行番号も表示する</td>
+            </tr>
+            <tr>
+              <td>-q</td>
+              <td>結果を表示しない</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="level2" aria-labelledby="mkdir">
+        <h2 id="mkdir">mkdir</h2>
+        <p>"MaKe DIRectory"の略で、ディレクトリを作成します。<br>-pオプションを使用すると、入れ子になっているディレクトリを一気に作成できます。</p>
+      </section>
+      <section class="level2" aria-labelledby="touch">
+        <h2 id="touch">touch</h2>
+        <p>ファイルを作成します。だいたいテキストエディタに存在しないファイル名を放り込むと勝手に作ってくれるのであんまり使いません。</p>
+      </section>
+      <section class="level2" aria-labelledby="rmdir">
+        <h2 id="rmdir">rmdir</h2>
+        <p>"ReMove DIRectory"の略で、空のディレクトリを削除します。中身が入っているディレクトリは後述のrmコマンドを使います。</p>
+      </section>
+      <section class="level2" aria-labelledby="rm">
+        <h2 id="rm">rm</h2>
+        <p>
+          "ReMove"の略で、ファイルやディレクトリを削除します。
+          | オプション | 挙動 |
+          | --- | --- |
+          | -f, --force | 強制削除 |
+          | -r | ディレクトリとその中身を削除 |
+        </p>
+      </section>
+      <section class="level2" aria-labelledby="chmod">
+        <h2 id="chmod">chmod</h2>
+        <p>"CHange MODe"の略で、ファイルやディレクトリのアクセス権を変更します。</p>
+        <p>アクセス権には3種類あり、</p>
+        <ul>
+          <li>Read: 読み取り権限</li>
+          <li>Write: 書き込み権限</li>
+          <li>
+            eXecute: 実行権限
+            を、3種類の対象
+          </li>
+          <li>User: 所有者</li>
+          <li>Group: 所有者の所属するグループ</li>
+          <li>
+            Other: 所有者のグループに所属しないユーザー
+            にそれぞれ付与したり剥奪したりします。
+          </li>
+        </ul>
+        <p>付与するときは+、剥奪するときは-を使用します。</p>
+        <pre class="language-bash"><code class="language-bash"><span class="token function">chmod</span> u+x test.sh <span class="token comment"># 所有者にtest.shの実行を許可</span>
+<span class="token function">chmod</span> o-w test.sh <span class="token comment"># 所有者グループ以外のユーザーのtest.shの書き換えを禁止</span>
+<span class="token function">chmod</span> a+rwx test.sh <span class="token comment"># 全員にtest.shの読み取り・書き込み・実行を許可</span></code></pre>
+        <p>また、読み取り権限を4、書き込み権限を2、実行権限を1として、許可したい権限を和を取り、ユーザー、グループ、その他の順で値を並べて設定することもできます。</p>
+        <pre class="language-bash"><code class="language-bash"><span class="token function">chmod</span> <span class="token number">764</span> test.sh <span class="token comment"># 所有者に読み込み・書き込み・実行を許可、  </span>
+                  <span class="token comment"># グループに読み込み・書き込みを許可、</span>
+                  <span class="token comment"># その他に読み込みのみ許可</span>
+<span class="token function">chmod</span> <span class="token number">777</span> test.sh <span class="token comment"># test.shの読み書きと実行を全ユーザーに許可</span></code></pre>
+      </section>
+      <section class="level2" aria-labelledby="chown">
+        <h2 id="chown">chown</h2>
+        <p>"CHange OWN"の略で、第2引数に指定したファイルの所有者を第1引数に指定したユーザーに変更します。</p>
+        <pre class="language-bash"><code class="language-bash"><span class="token function">chown</span> user test.txt <span class="token comment"># test.txtの所有者をuserに変更</span></code></pre>
+      </section>
+      <section class="level2" aria-labelledby="diff">
+        <h2 id="diff">diff</h2>
+        <p>"DIFFerence"の略で、第1引数と第2引数に指定したファイルの差分を出力します。</p>
+        <table>
+          <thead>
+            <tr>
+              <th>オプション</th>
+              <th>挙動</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>-i</td>
+              <td>大文字と小文字を区別せずに比較</td>
+            </tr>
+            <tr>
+              <td>-s</td>
+              <td>ファイルが同一なときは同一と表示</td>
+            </tr>
+            <tr>
+              <td>-q</td>
+              <td>中身を表示せずに比較し、異なる場合は異なると表示</td>
+            </tr>
+            <tr>
+              <td>-r</td>
+              <td>ディレクトリごと比較</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>※出力の読み方</p>
+        <pre class="language-text"><code class="language-text">~ $ cat text1.txt
+a
+b
+c
+~ $ cat text2.txt
+a
+b
+d
+~ $ diff text1.txt text2.txt
+3c3 # text1.txtの3行目→text2.txtの3行目[Change]
+&#x3C; c
+> d</code></pre>
+        <pre class="language-text"><code class="language-text">~ $ cat text1.txt
+a
+b
+c
+~ $ cat text2.txt
+a
+b
+~ $ diff text1.txt text2.txt
+3d2 # text1.txtの3行目が削除され2行目の最後まで詰まった[Delete]
+&#x3C; c</code></pre>
+        <pre class="language-text"><code class="language-text">~ $ cat text1.txt
+a
+b
+c
+~ $ cat text2.txt
+a
+b
+c
+d
+~ diff text1.txt text2.txt
+3a4 # text1.txtの3行目の直後にtext2.txtの4行目が追加された[Add]
+> d</code></pre>
+      </section>
+    </section>
+    <section class="level1" aria-labelledby="docker">
+      <h1 id="docker">Docker</h1>
+      <section class="level2" aria-labelledby="dockerとは">
+        <h2 id="dockerとは">Dockerとは</h2>
+        <p>Dockerは、<strong>コンテナ型仮想化</strong>を行うソフトウェアで、<del>若干廃れてる気もするが</del>Linux上ではKernelを共有することにより高速に動作します。<br>Windowsで使用する場合はLinuxの仮想環境を挟むので重くなりやすいです。また、Windowsで使用する場合はWSL上にインストールし、Docker Desktop上で動かすことになります。<br>仮想環境の構築設定は<strong>Dockerfile</strong>に書きます。</p>
+      </section>
+      <section class="level2" aria-labelledby="vscode-devcontainer">
+        <h2 id="vscode-devcontainer">VSCode DevContainer</h2>
+        <p><strong>DevContainer</strong>は比較的最近実装されたVSCodeの機能で、Dockerを利用した仮想環境上での開発をかんたんにできる機能です。<br>これを利用するには、VSCodeにDevContainer拡張機能をインストールする必要があります。<br>また、DevContainerではdevcontainer.jsonというファイルを利用することで拡張機能等も設定に書けたり、環境構築にdockerfileが使えたりします。</p>
+        <p>devcontainer環境のファイルがある場合はVSCodeのコマンドパレットから"Reopen in Container"(コンテナーで再度開く)を選択することでdevcontainer環境に入れます。</p>
+      </section>
+    </section>
+    <section class="level1" aria-labelledby="nix-1">
+      <h1 id="nix-1">Nix</h1>
+      <p>Nixは、純粋関数型言語Nixによって定義されるパッケージマネージャーのことを指すことが多いですが、時にNix言語そのものを指します。パッケージマネージャーNixは、純粋関数型言語Nixを利用することにより、再現性の高いビルド環境を構築できることが最大の特徴です。<br>Dockerは仮想環境ですが、Nixはユーザー環境で動作するのでDockerより高速に動作します。また、このNixは開発環境を構築することもでき、これを使うと、システムグローバルに影響を与えずにその環境内だけで使用するパッケージを定義することができます。</p>
+      <section class="level2" aria-labelledby="nix-flakes">
+        <h2 id="nix-flakes">Nix Flakes</h2>
+        <p>Nix FlakesはExperimentalな機能なので、有効化しなければなりませんが、これはgit管理されているリポジトリ上で、別のリポジトリをインポートしたりしながらビルドや開発環境を定義できる機能です。</p>
+      </section>
+      <section class="level2" aria-labelledby="インストール">
+        <h2 id="インストール">インストール</h2>
+        <p><a href="https://nixos.org/download/#nix-install-linux">公式サイト</a>を参照してください。<br>...とはいっても<code>sh &#x3C;(curl -L https://nixos.org/nix/install) --daemon</code>を実行するだけですが。<br>※失敗する場合はsystemdをセットアップするか、<code>sh &#x3C;(curl -L https://nixos.org/nix/install) --no-daemon</code>を実行してください。</p>
+        <p>ちなみにArchの場合は<code>nix</code>パッケージをインストールするだけで使えます。</p>
+        <p>また、Flakesを有効化しておいてください。<br>まあ。これも<code>sudo echo experimental-features = nix-command flakes >> /etc/nix/nix.conf</code>または<code>echo experimental-features = nix-command flakes >> ~/.config/nix/nix.conf</code>を実行するだけですが。</p>
+      </section>
+      <section class="level2" aria-labelledby="nix-shell">
+        <h2 id="nix-shell">nix-shell</h2>
+        <p>nix-shellは-pオプションを利用するかしないかによって意味が変わってくるコマンドです。<br>-pオプションを使用しない場合、カレントディレクトリ配下にあるshell.nixに定義された開発環境を構築します。<br>-pオプションを使用する場合、引数にパッケージ名をとり、そのパッケージが導入された開発環境を構築します。<br>なお、nix-shellを使用する場合、bashを使用している場合はプロンプトが[nix-shell@]などに変化します。<br>開発環境から出る場合は<code>exit</code>です。</p>
+      </section>
+      <section class="level2" aria-labelledby="nix-develop">
+        <h2 id="nix-develop">nix develop</h2>
+        <p>nix developは、カレントディレクトリ配下にあるflake.nixで定義された開発環境を構築するコマンドです。<br>flakeが使えること以外は<code>nix-shell</code>とさほど変わりません。<br>基本的にnixを使うときは<code>nix develop</code>を使うと思ってください。<br>まあ、ちゃんと説明します。</p>
+      </section>
+    </section>
+    <section class="footnotes" role="doc-endnotes">
+      <hr>
+      <ol>
+        <li id="fn1" role="doc-endnote"><a href="https://ja.wikipedia.org/wiki/KISS%E3%81%AE%E5%8E%9F%E5%89%87">wikipedia</a>より<a href="#fnref1" class="footnote-back" role="doc-backlink">↩</a></li>
+      </ol>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "@context": [
+    "https://schema.org",
+    "https://www.w3.org/ns/pub-context"
+  ],
+  "type": "Book",
+  "conformsTo": "https://github.com/vivliostyle/vivliostyle-cli",
+  "name": "lecture",
+  "author": "klef <haru-0205@outlook.com>",
+  "dateModified": "2024-07-05T03:05:41.682Z",
+  "readingOrder": [
+    {
+      "url": "entries/linux.html",
+      "name": "Linux入門"
+    }
+  ],
+  "resources": [],
+  "links": []
+}
