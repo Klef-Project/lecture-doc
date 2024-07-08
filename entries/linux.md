@@ -253,6 +253,7 @@ timedatectl status | grep Tokyo # コマンドの実行結果から"Tokyo"を含
 ## rm
 
 "ReMove"の略で、ファイルやディレクトリを削除します。
+
 | オプション | 挙動 |
 | --- | --- |
 | -f, --force | 強制削除 |

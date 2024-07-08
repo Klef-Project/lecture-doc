@@ -5,7 +5,7 @@ module.exports = {
   // size: 'A4', // paper size.
   theme: '@klef/vivliostyle-theme-klef-lecture@^0.1.0', // .css or local dir or npm package. default to undefined.
   entry: [
-    "entries/linux.md"
+    "entries/frontend.md"
     // {
     //   path: 'epigraph.md',
     //   title: 'Epigraph', // title can be overwritten (entry > file),

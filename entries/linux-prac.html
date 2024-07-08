@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Linux入門研修 実習テキスト</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../themes/packages/@klef/vivliostyle-theme-klef-lecture/theme.css">
+  </head>
+  <body>
+    <section class="level1" aria-labelledby="1-linuxの基礎操作">
+      <h1 id="1-linuxの基礎操作">1 Linuxの基礎操作</h1>
+      <section class="level2" aria-labelledby="11-パッケージのインストール">
+        <h2 id="11-パッケージのインストール">1.1 パッケージのインストール</h2>
+        <p>Vim/NeoVim/Emacs/Nanoのうち、好きなものを選択し、インストールせよ。</p>
+        <p>
+          [メモ]<br>私が使用しているディストリビューションは(　　　　　　)で、
+          パッケージマネージャーは(　　　)である。<br>パッケージのインストールコマンドは(　　　　　　　　　　　)である。
+        </p>
+      </section>
+      <section class="level2" aria-labelledby="12-neofetch">
+        <h2 id="12-neofetch">1.2 neofetch</h2>
+        <p>neofetchをインストールし、実行せよ。<br>また、neofetchの「Kernel」の欄に書いてあるKernelのバージョンを確認せよ。</p>
+        <p>[結果]<br>私が現在使用しているKernelのバージョンは(　　　　　　　)であった。</p>
+      </section>
+    </section>
+    <section class="level1" aria-labelledby="2-linuxコマンド">
+      <h1 id="2-linuxコマンド">2 Linuxコマンド</h1>
+      <section class="level2" aria-labelledby="21-lsコマンド">
+        <h2 id="21-lsコマンド">2.1 lsコマンド</h2>
+        <p>任意のディレクトリで<code>ls</code>コマンドを実行せよ。<br>また、実習用リポジトリのルートで<code>ls -l</code>と<code>ls -la</code>を実行し、結果を比較せよ。</p>
+        <p>[結果]<br><code>ls -la</code>を実行したときは、<code>ls -l</code>(と同じ出力が得られた・よりも多くのファイルが出力された・よりも少ないファイルが出力された)。</p>
+      </section>
+      <section class="level2" aria-labelledby="22-pwd">
+        <h2 id="22-pwd">2.2 pwd</h2>
+        <p>任意のディレクトリで<code>pwd</code>コマンドを実行せよ。</p>
+        <p>[結果]<br><code>pwd</code>コマンドの出力は(　　　　　　　　　　　　　　　　)であった。<br>これは、カレントディレクトリの絶対パスと(一致した・一致しなかった)。</p>
+      </section>
+      <section class="level2" aria-labelledby="23-cd">
+        <h2 id="23-cd">2.3 cd</h2>
+        <p>
+          ルート以外の任意のディレクトリで<code>cd ../</code>を実行せよ。
+          また、実行前と実行後でそれぞれ<code>pwd</code>を実行し、その出力を比較せよ。
+        </p>
+        <p>[結果]<br><code>cd</code>コマンド実行後はカレントディレクトリが(変化していた・変化していなかった)</p>
+      </section>
+      <section class="level2" aria-labelledby="24-cp">
+        <h2 id="24-cp">2.4 cp</h2>
+        <p>研修用リポジトリルートにある<code>README.md</code>を親ディレクトリにコピーせよ。</p>
+      </section>
+      <section class="level2" aria-labelledby="25-mv">
+        <h2 id="25-mv">2.5 mv</h2>
+        <p>先ほどコピーした<code>README.md</code>を<code>readme-back.md</code>にリネームせよ。<br>また、リネームした<code>readme-back.json</code>を研修用リポジトリルートに移動させよ。</p>
+      </section>
+      <section class="level2" aria-labelledby="26-cat">
+        <h2 id="26-cat">2.6 cat</h2>
+        <p>実習用リポジトリルートにある<code>README.md</code>の内容を<code>cat</code>で表示せよ。</p>
+      </section>
+      <section class="level2" aria-labelledby="27-less">
+        <h2 id="27-less">2.7 less</h2>
+        <p>実習用リポジトリルートにある<code>README.md</code>の内容を<code>less</code>で表示せよ。</p>
+        <p>[結果]<br><code>cat</code>コマンドと<code>less</code>コマンドの違いを示せ。</p>
+      </section>
+      <section class="level2" aria-labelledby="28-grep">
+        <h2 id="28-grep">2.8 grep</h2>
+        <p>研修用リポジトリルートにある<code>test.txt</code>から<code>osaka</code>の文字列を検索せよ。</p>
+        <p>[結果]<br>"osaka"の文字列は(　　　　　)行目にあった。</p>
+      </section>
+      <section class="level2" aria-labelledby="29-mkdir">
+        <h2 id="29-mkdir">2.9 mkdir</h2>
+        <p>任意のディレクトリ内に"test"ディレクトリを作成せよ。</p>
+      </section>
+      <section class="level2" aria-labelledby="210-touch">
+        <h2 id="210-touch">2.10 touch</h2>
+        <p>任意のディレクトリの中に"test2"ディレクトリを作成し、"sample.txt"を作成せよ。</p>
+      </section>
+      <section class="level2" aria-labelledby="211-rmdir">
+        <h2 id="211-rmdir">2.11 rmdir</h2>
+        <p>先ほど作成した"test"ディレクトリを削除せよ。</p>
+      </section>
+      <section class="level2" aria-labelledby="212-rm">
+        <h2 id="212-rm">2.12 rm</h2>
+        <p>先ほど作成した"test2"ディレクトリを削除せよ。</p>
+      </section>
+      <section class="level2" aria-labelledby="213-chmod">
+        <h2 id="213-chmod">2.13 chmod</h2>
+        <p>実習用リポジトリルートにある"test.sh"に実行権限を付与し、実行せよ。</p>
+        <p>[結果]<br>"test.sh"を実行すると(　　　　　　　　　　)と表示された。</p>
+      </section>
+      <section class="level2" aria-labelledby="214-chown">
+        <h2 id="214-chown">2.14 chown</h2>
+        <p>実習用リポジトリルートにある"test.sh"の所有者を"root"にせよ。<br>また、その後、"test.sh"を実行せよ。</p>
+        <p>[結果]<br>test.shは(実行できた・実行できなかった)</p>
+      </section>
+      <section class="level2" aria-labelledby="215-diff">
+        <h2 id="215-diff">2.15 diff</h2>
+        <p>実習用リポジトリの"diff"ディレクトリにある"before.txt"と"after.txt"の差分を表示せよ。</p>
+        <p>
+          [結果]
+          after.txtはbefore.txtの(　)行目を(　　　　)から(　　　　)に変更したファイルである。
+        </p>
+      </section>
+    </section>
+    <section class="level1" aria-labelledby="3-docker">
+      <h1 id="3-docker">3 docker</h1>
+      <section class="level2" aria-labelledby="31-devcontainer">
+        <h2 id="31-devcontainer">3.1 devcontainer</h2>
+        <p>実習用リポジトリルートをVSCodeで開き、devcontainerで開き直し、<code>pnpm i</code>を実行したのち<code>pnpm dev</code>を実行せよ。<br>その後、ターミナル上に表示された"localhost"を含むURLにアクセスし、サイトが表示されることを確認せよ。</p>
+      </section>
+    </section>
+    <section class="level1" aria-labelledby="4-nix">
+      <h1 id="4-nix">4 Nix</h1>
+      <section class="level2" aria-labelledby="41-nix-shell">
+        <h2 id="41-nix-shell">4.1 nix-shell</h2>
+        <p>-pオプションを用いて、<code>tenki</code>パッケージを導入し、nix-shell環境下で<code>tenki</code>を実行せよ。<br>また、nix-shellを出ると実行できないことを確認せよ。</p>
+      </section>
+      <section class="level2" aria-labelledby="42-nix-develop">
+        <h2 id="42-nix-develop">4.2 nix develop</h2>
+        <p>実習用リポジトリルートをLinux環境で開き、<code>nix develop</code>を実行して、Docker同様の手順を踏んでサイトが表示されることを確認せよ。</p>
+      </section>
+    </section>
+  </body>
+</html>

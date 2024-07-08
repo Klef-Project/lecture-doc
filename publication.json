@@ -7,11 +7,11 @@
   "conformsTo": "https://github.com/vivliostyle/vivliostyle-cli",
   "name": "lecture",
   "author": "klef <haru-0205@outlook.com>",
-  "dateModified": "2024-07-05T03:05:41.682Z",
+  "dateModified": "2024-07-08T04:24:51.324Z",
   "readingOrder": [
     {
-      "url": "entries/linux.html",
-      "name": "Linux入門"
+      "url": "entries/frontend.html",
+      "name": "フロントエンド"
     }
   ],
   "resources": [],
