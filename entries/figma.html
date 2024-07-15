@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Figma基礎研修</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../themes/packages/@klef/vivliostyle-theme-klef-lecture/theme.css">
+  </head>
+  <body>
+    <section class="level1" aria-labelledby="figmaとは">
+      <h1 id="figmaとは">Figmaとは</h1>
+      <p>Figmaは、Webデザイン用のツールで、主にレイアウト案を作成するために使われます。<br>Figma自体にはWebデザインツール(UIツールキット)である「Figma Design」の他にオンラインホワイトボードである「Figjam」とプレゼンテーションツールである「Figma Slide」が統合されていますが、今回は「Figma Design」を扱います。</p>
+    </section>
+    <section class="level1" aria-labelledby="figmaの使い方">
+      <h1 id="figmaの使い方">Figmaの使い方</h1>
+      <p>Figmaは<strong>Webアプリケーション</strong>で、ブラウザ経由で利用します。<br><a href="https://www.figma.com">https://www.figma.com</a>にアクセスし、ログインするだけで使えます。</p>
+      <section class="level2" aria-labelledby="figmaの学割">
+        <h2 id="figmaの学割">Figmaの学割</h2>
+        <p>Figmaには学割が用意されています...が、卒業予定年を聞かれますが4年後までしか選べない(=高専を想定していない)ので、今回はFreeプランで説明します。<br>ちなみに、Figmaの学割プランでは、プロジェクトあたりのファイル数制限がなくなり、DevModeを使えます。</p>
+      </section>
+    </section>
+    <section class="level1" aria-labelledby="figmaの操作">
+      <h1 id="figmaの操作">Figmaの操作</h1>
+      <section class="level2" aria-labelledby="フレーム">
+        <h2 id="フレーム">フレーム</h2>
+        <p>Figmaでデザインをするときに、まずはじめにすることは<strong>画面</strong>を配置することです。当然ですね。<br>ということで、デザインのベースになる画面を配置するには「フレーム」という機能を使います。<br>フレームを挿入するには、左上のメニューバーの中から、カーソルの右隣のマークをクリックし、右ペイン内から適切なものをクリックします。また、Fキーを押すことでも左ペインをフレーム選択のものになります。</p>
+      </section>
+      <section class="level2" aria-labelledby="長方形rectangle">
+        <h2 id="長方形rectangle">長方形(Rectangle)</h2>
+        <p>Figmaを用いたデザイン、というかWebデザインでは基本的に長方形がベースになります。当然ですね。<br>そのようによく使われる長方形については、フレームの右となりのボタンを押す、またはRキーを押すことで矩形選択の要領で入力できます。</p>
+      </section>
+      <section class="level2" aria-labelledby="直線line">
+        <h2 id="直線line">直線(Line)</h2>
+        <p>もちろん直線を入力することもできます。長方形のボタンの矢印を押すと、選択することができます。または、Lキーでも直線モードにできます。</p>
+      </section>
+      <section class="level2" aria-labelledby="矢印arrow">
+        <h2 id="矢印arrow">矢印(Arrow)</h2>
+        <p>矢印を入力することもできます。直線と同じ要領、またはShift+Lキーで選択できます。</p>
+      </section>
+      <section class="level2" aria-labelledby="円eclipse">
+        <h2 id="円eclipse">円(Eclipse)</h2>
+        <p>円も入力できます。直線と同じ要領、またはOキーで選択できます。</p>
+      </section>
+      <section class="level2" aria-labelledby="三角形polygon星star">
+        <h2 id="三角形polygon星star">三角形(Polygon)、星(Star)</h2>
+        <p>これらも入力できます。直線と同じ要領で選択できますが、ショートカットキーはありません。</p>
+      </section>
+      <section class="level2" aria-labelledby="画像動画place-imagevideo">
+        <h2 id="画像動画place-imagevideo">画像・動画(Place Image/Video...)</h2>
+        <p>ローカルから画像や動画を配置できます。直線と同じ要領、またはCtrl+Shift+Kでファイル選択ダイアログが開けるので、アップロードするファイルを選択すると、その画像を配置できます。</p>
+      </section>
+      <section class="level2" aria-labelledby="文字text">
+        <h2 id="文字text">文字(Text)</h2>
+        <p>文字は長方形の2つ右となりのボタンを押すと入力できます。</p>
+      </section>
+      <section class="level2" aria-labelledby="resources">
+        <h2 id="resources">Resources</h2>
+        <p>文字の右となりのボタンを押すと、プロトタイプ内で定義したコンポーネントや公開されているコンポーネントを挿入することができます。</p>
+      </section>
+      <section class="level2" aria-labelledby="ペン">
+        <h2 id="ペン">ペン</h2>
+        <p>ペンツールを使うことでも直線を引けます、が、このツールは<strong>ベジエ曲線</strong>という曲線を描くツールです。<br>ベジエ曲線は、おおまかにいうとベクター形式の曲線のことです。色々いじってみてください。</p>
+      </section>
+      <section class="level2" aria-labelledby="グループ化">
+        <h2 id="グループ化">グループ化</h2>
+        <p>グループ化は、2つ以上のオブジェクト(パーツ)を<strong>1つのオブジェクトであるかのようにまとめて扱う</strong>処理のことです。後述のコンポーネントとは全く違います。</p>
+      </section>
+      <section class="level2" aria-labelledby="コンポーネント化">
+        <h2 id="コンポーネント化">コンポーネント化</h2>
+        <p>コンポーネント化とは、2つ以上のオブジェクトをまとめて<strong>使い回せるようにしたテンプレート</strong>にする処理のことです。グループはその場限りですが、コンポーネントは使いまわしが前提となります。</p>
+      </section>
+    </section>
+    <section class="level1" aria-labelledby="実習">
+      <h1 id="実習">実習</h1>
+      <p>ここまで学んだら、実際に何かを作ってみたいですよね？<br>ということで、<strong>ポートフォリオ</strong>サイトのデザインを作成してみましょう。</p>
+      <section class="level2" aria-labelledby="ポートフォリオとは">
+        <h2 id="ポートフォリオとは">ポートフォリオとは</h2>
+        <p>ポートフォリオは、<strong>自分が持っている技術や自分の成果を1か所に集約したもの</strong>です。作っておくと就職の時に便利(らしい)です。<br><strong>React研修で使うので、必ずレイアウトを作成しておいてください</strong></p>
+      </section>
+      <section class="level2" aria-labelledby="ポートフォリオに書くこと">
+        <h2 id="ポートフォリオに書くこと">ポートフォリオに書くこと</h2>
+        <ul>
+          <li>名前</li>
+          <li>生年月日</li>
+          <li>居住地(都道府県〜市くらいまで、<strong>絶対に住所をすべて書かないこと</strong>)</li>
+          <li>所属</li>
+          <li>今までの成果</li>
+          <li>GitHubアカウントのリンク</li>
+          <li>SNSアカウントのリンク(特にLinkedInなど)</li>
+          <li>その他(好きな色、部活、...)</li>
+        </ul>
+        <p>など、<strong>自己紹介+α</strong>くらいのイメージで作成してください。</p>
+      </section>
+      <section class="level2" aria-labelledby="レイアウト作成の注意事項">
+        <h2 id="レイアウト作成の注意事項">レイアウト作成の注意事項</h2>
+        <p>案外どんなレイアウトを組んでも構いませんが、<strong>あとから変更できる</strong>ので、<strong>作れそう</strong>なレベルで作成してください。<br>長方形をメインで作成すると、比較的かんたんに作成できます。<br>あまり複雑なページの場合はInkscapeというソフトウェアで<strong>SVG</strong>を扱ってもらう可能性もあるので、ほどほどにお願いします...<br>また、今回は<strong>アニメーションはなし</strong>にしてください。</p>
+      </section>
+    </section>
+  </body>
+</html>
